@@ -24,7 +24,7 @@
 namespace SimpleThings\EntityAudit;
 
 use Doctrine\DBAL\Types\Type;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\PersistentCollection;
@@ -140,11 +140,11 @@ class AuditReader
     }
 
     /**
-     * @param EntityManager $em
+     * @param EntityManagerInterface $em
      * @param AuditConfiguration $config
      * @param MetadataFactory $factory
      */
-    public function __construct(EntityManager $em, AuditConfiguration $config, MetadataFactory $factory)
+    public function __construct(EntityManagerInterface $em, AuditConfiguration $config, MetadataFactory $factory)
     {
         $this->em = $em;
         $this->config = $config;
